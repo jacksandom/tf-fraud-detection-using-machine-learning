@@ -39,3 +39,4 @@ variable "kinesis_firehose_prefix" {
   description = "Kinesis Firehose prefix for delivery of processed events."
   default     = "fraud-detection/firehose/"
 }
+

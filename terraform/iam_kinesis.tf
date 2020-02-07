@@ -2,8 +2,8 @@ resource "aws_iam_role" "fraud_detection_firehose_role" {
   name = "fraud-detection-firehose-role"
 
   tags = {
-    Group     = "${var.default_resource_group}"
-    CreatedBy = "${var.default_created_by}"
+    Group     = var.default_resource_group
+    CreatedBy = var.default_created_by
   }
 
   assume_role_policy = <<EOF
@@ -20,11 +20,12 @@ resource "aws_iam_role" "fraud_detection_firehose_role" {
     ]
 }
 EOF
+
 }
 
 resource "aws_iam_role_policy_attachment" "fraud_detection_firehose" {
-  role       = "${aws_iam_role.fraud_detection_firehose_role.name}"
-  policy_arn = "${aws_iam_policy.fraud_detection_firehose_policy.arn}"
+  role       = aws_iam_role.fraud_detection_firehose_role.name
+  policy_arn = aws_iam_policy.fraud_detection_firehose_policy.arn
 }
 
 resource "aws_iam_policy" "fraud_detection_firehose_policy" {
@@ -54,4 +55,6 @@ resource "aws_iam_policy" "fraud_detection_firehose_policy" {
     ]
 }
 EOF
+
 }
+
