@@ -22,10 +22,10 @@ resource "aws_iam_role" "sm_notebook_instance_role" {
 EOF
 
 
-  tags = {
-    Group     = var.default_resource_group
-    CreatedBy = var.default_created_by
-  }
+#  tags = {
+#    Group     = var.default_resource_group
+#    CreatedBy = var.default_created_by
+#  }
 }
 
 resource "aws_iam_role_policy_attachment" "sm_notebook_instance" {

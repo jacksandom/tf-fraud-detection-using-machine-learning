@@ -7,7 +7,7 @@ resource "aws_kinesis_firehose_delivery_stream" "fraud_detection_firehose_stream
     prefix             = var.kinesis_firehose_prefix
     buffer_interval    = 60
     buffer_size        = 100
-    compression_format = "GZIP"
+    #compression_format = "GZIP"
     role_arn           = aws_iam_role.fraud_detection_firehose_role.arn
   }
 
